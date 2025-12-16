@@ -23,7 +23,7 @@ pipeline {
 
         stage('Deploy to EC2') {
             steps {
-                sshagent(['ec2-ubuntu-key']) {
+                sshagent(['ec2-ssh-key']) {
                     sh """
                     scp -o StrictHostKeyChecking=no target/demo-1.0.0.jar ubuntu@34.224.84.252:/opt/app/
                     ssh -o StrictHostKeyChecking=no ubuntu@34.224.84.252 '
